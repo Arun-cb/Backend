@@ -214,6 +214,16 @@ CORS_ALLOWED_ORIGINS = [
     "https://3.81.234.70:8443",
 ]
 
+CORS_ORIGIN_WHITELIST = [
+    "http://3.81.234.70:8443",
+    "https://3.81.234.70:8443",
+]
+
+CORS_ORIGIN_REGEX_WHITELIST = [
+    "http://3.81.234.70:8443",
+    "https://3.81.234.70:8443",
+]
+
 # CORS_ALLOW_ALL_ORIGINS = True
 CORS_ORIGIN_ALLOW_ALL = True
 
