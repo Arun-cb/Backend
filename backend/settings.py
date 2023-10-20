@@ -212,6 +212,7 @@ CORS_ALLOWED_ORIGINS = [
     "http://192.168.1.100:3000",
     "http://3.81.234.70:8443",
     "https://3.81.234.70:8443",
+    "http://184.72.84.162:3000",
 ]
 
 CORS_ORIGIN_WHITELIST = [
