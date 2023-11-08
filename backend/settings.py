@@ -206,27 +206,29 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-CORS_ALLOWED_ORIGINS = [
-    "http://192.168.100.111:3000",
-    "http://localhost:3000",
-    "http://192.168.1.100:3000",
-    "http://3.81.234.70:8443",
-    "https://3.81.234.70:8443",
-    "http://184.72.84.162:3000",
-]
+# CORS_ALLOWED_ORIGINS = [
+#     "http://192.168.100.111:3000",
+#     "http://localhost:3000",
+#     "http://192.168.1.100:3000",
+#     "http://3.81.234.70:8443",
+#     "https://3.81.234.70:8443",
+#     "http://184.72.84.162:3000",
+#     "https://54.81.252.99:8443",
+#     "http://54.81.252.99:8443",
+# ]
 
-CORS_ORIGIN_WHITELIST = [
-    "http://3.81.234.70:8443",
-    "https://3.81.234.70:8443",
-]
+# CORS_ORIGIN_WHITELIST = [
+#     "http://3.81.234.70:8443",
+#     "https://3.81.234.70:8443",
+# ]
 
-CORS_ORIGIN_REGEX_WHITELIST = [
-    "http://3.81.234.70:8443",
-    "https://3.81.234.70:8443",
-]
+# CORS_ORIGIN_REGEX_WHITELIST = [
+#     "http://3.81.234.70:8443",
+#     "https://3.81.234.70:8443",
+# ]
 
-# CORS_ALLOW_ALL_ORIGINS = True
-CORS_ORIGIN_ALLOW_ALL = True
+CORS_ALLOW_ALL_ORIGINS = True
+# CORS_ORIGIN_ALLOW_ALL = True
 
 # TO store image files in Reacr folder
 # Store image in local
