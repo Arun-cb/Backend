@@ -15,7 +15,7 @@ def set_db_sql_connection(request):
     reqconnData = request.data
     
     try:
-        db_type = reqconnData.get('database_type')
+        db_type = reqconnData.get('connection_type')
         
         if db_type == 'MYSQL':
             try:
@@ -377,7 +377,7 @@ def fnGetTableData(request):
     connnectionrequestdata = request.data
     saved_connection = connnectionrequestdata["savedConnectionItems"]
     
-    db_type = saved_connection.get("database_type")
+    db_type = saved_connection.get("connection_type")
 
     if db_type == 'MYSQL':
 
@@ -760,7 +760,7 @@ def fnGetQueryResult(request):
     saved_connection = connnectionrequestdata["savedConnectionItems"]
     query = connnectionrequestdata["query_text"]
     
-    db_type = saved_connection.get("database_type")
+    db_type = saved_connection.get("connection_type")
 
     if db_type == 'MYSQL':
 

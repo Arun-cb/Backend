@@ -119,14 +119,14 @@ urlpatterns = [
     path("upd_user_profile/<int:id>/", views.upd_user_profile),
     path("del_user_profile/<int:id>/", views.del_user_profile),
 
-    path("get_rb_db_connect_table", views.get_rb_db_connect_table),
-    path("get_rb_db_connect_table/<int:id>/", views.get_rb_db_connect_table),
-    path("get_range_rb_db_connect_table/<int:start>/<int:end>/",
-         views.get_range_rb_db_connect_table),
-    path("ins_rb_db_connect_table", views.ins_rb_db_connect_table),
+    path("get_rb_connect_definition_table", views.get_rb_connect_definition_table),
+    path("get_rb_connect_definition_table/<int:id>/", views.get_rb_connect_definition_table),
+    path("get_range_rb_connect_definition_table/<int:start>/<int:end>/",
+         views.get_range_rb_connect_definition_table),
+    path("ins_rb_connect_definition_table", views.ins_rb_connect_definition_table),
     path("rb_test_db_connection", views.rb_test_db_connection),
-    path("upd_rb_db_connect_table/<int:id>/", views.upd_rb_db_connect_table),
-    path("del_rb_db_connect_table/<int:id>/", views.del_rb_db_connect_table),
+    path("upd_rb_connect_definition_table/<int:id>/", views.upd_rb_connect_definition_table),
+    path("del_rb_connect_definition_table/<int:id>/", views.del_rb_connect_definition_table),
 
 
     # path("rb_get_conn_str",rb_views.rb_get_conn_str),
@@ -193,13 +193,14 @@ urlpatterns = [
 
     path("get_ydata_profiling_report", views.get_ydata_profiling_report),
 
-     path("get_rb_connect_definition_table", views.get_rb_rest_connect_table),
-     path("get_rb_connect_definition_table/<int:id>/", views.get_rb_rest_connect_table),
-     path("get_range_rb_connect_definition_table/<int:start>/<int:end>/", views.get_range_rb_rest_connect_table),
-     path("ins_rb_connect_definition_table",views.ins_rb_rest_connect_table),
-     path("rb_test_db_connection",views.rb_test_db_connection),
-     path("upd_rb_db_connect_definition_table/<int:id>/", views.upd_rb_db_connect_definition_table),
-     path("del_rb_connect_definition_table/<int:id>/", views.del_rb_rest_connect_table),
+     # path("get_rb_connect_definition_table", views.get_rb_rest_connect_table),
+     # path("get_rb_connect_definition_table/<int:id>/", views.get_rb_rest_connect_table),
+     # path("get_range_rb_connect_definition_table/<int:start>/<int:end>/", views.get_range_rb_rest_connect_table),
+     # path("ins_rb_connect_definition_table",views.ins_rb_rest_connect_table),
+     # # path("rb_test_db_connection",views.rb_test_db_connection),
+     # path("upd_rb_db_connect_definition_table/<int:id>/", views.upd_rb_db_connect_definition_table),
+     # path("del_rb_connect_definition_table/<int:id>/", views.del_rb_rest_connect_table),
+     
      path("ins_and_upd_connection_data", rb_views.ins_and_upd_connection_data),
 
 

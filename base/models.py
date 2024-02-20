@@ -239,13 +239,13 @@ class sso_configure(models.Model):
 # Query Builder Database Connection Model
 
 
-class rb_db_connect_table(models.Model):
+class rb_connect_definition_table(models.Model):
     id = models.AutoField(primary_key=True)
     connection_name = models.CharField(max_length=255, null=False, blank=False)
     schema_name = models.CharField(max_length=255, null=True, blank=True)
     database_name = models.CharField(max_length=255, null=True, blank=True)
-    database_type = models.CharField(max_length=255, null=False, blank=False)
-    user_name = models.CharField(max_length=50, null=False, blank=False)
+    connection_type = models.CharField(max_length=255, null=False, blank=False)
+    user_name = models.CharField(max_length=50, null=True, blank=True)
     password = models.CharField(max_length=50, null=True, blank=True)
     host_id = models.CharField(max_length=20, null=True, blank=True)
     port = models.IntegerField(null=True, blank=True)
@@ -253,6 +253,15 @@ class rb_db_connect_table(models.Model):
     account_id = models.CharField(max_length=255, null=True, blank=True)
     warehouse_id = models.CharField(max_length=255, null=True, blank=True)
     role = models.CharField(max_length=255, null=True, blank=True)
+
+    auth_type = models.CharField(max_length=255, null=True, blank=True)
+    auth_url = models.CharField(max_length=255, null=True, blank=True)
+    body = models.CharField(max_length=255, null=True, blank=True)
+    user_id = models.CharField(max_length=500, null=True, blank=True)
+    # password = models.CharField(max_length=500, null=True, blank=True)
+    data_enpoint_url = models.CharField(max_length=2000, null=True, blank=True)
+    method = models.CharField(max_length=50, null=True, blank=True)
+    
     created_by = models.IntegerField(null=False, blank=False)
     created_date = models.DateTimeField(auto_now_add=True)
     last_updated_by = models.IntegerField(null=False, blank=False)
@@ -261,7 +270,7 @@ class rb_db_connect_table(models.Model):
         max_length=1, null=False, blank=False, default='N')
 
     class Meta:
-        db_table = "rb_tb_sc_db_connect_table"
+        db_table = "rb_connect_definition_table"
 
 
 # Query Builder Definition Model
@@ -271,7 +280,7 @@ class query_definition(models.Model):
     id = models.AutoField(primary_key=True)
     query_name = models.CharField(max_length=255, null=False, blank=False)
     connection_id = models.ForeignKey(
-        rb_db_connect_table, null=False, blank=False, db_column="connection_id", on_delete=models.CASCADE)
+        rb_connect_definition_table, null=False, blank=False, db_column="connection_id", on_delete=models.CASCADE)
     query_text = models.TextField(null=False, blank=False)
     created_user = models.CharField(max_length=255, null=False, blank=False)
     created_by = models.IntegerField(null=False, blank=False)
@@ -499,25 +508,25 @@ class query_builder_aggeration_function_table(models.Model):
 
 
 # Restful connection table
-class rb_rest_connect_table(models.Model):
-    id = models.AutoField(primary_key=True)
-    connection_name = models.CharField(max_length=255,null=False,blank=False)
-    connection_type = models.CharField(max_length=255,null=False,blank=False)
-    auth_type = models.CharField(max_length=255, null=False, blank=False)
-    # connection_url = models.CharField(max_length=2000,null=True,blank=True)
-    auth_url = models.CharField(max_length=255, null=True, blank=True)
-    body = models.CharField(max_length=255, null=True, blank=True)
-    user_id = models.CharField(max_length=500, null=True, blank=True)
-    password = models.CharField(max_length=500, null=True, blank=True)
-    data_enpoint_url = models.CharField(max_length=2000, null=False, blank=False)
-    method = models.CharField(max_length=50, null=False, blank=False)
-    # client_id = models.CharField(max_length=500, null=True, blank=True)
-    # secret_code = models.CharField(max_length=500, null=True, blank=True)
-    created_by = models.IntegerField(null=False, blank=False)
-    created_date = models.DateTimeField(auto_now_add=True)
-    last_updated_by = models.IntegerField(null=False, blank=False)
-    last_updated_date = models.DateTimeField(auto_now=True)
-    delete_flag = models.CharField(max_length=1, null=False, blank=False, default='N')
+# class rb_rest_connect_table(models.Model):
+#     id = models.AutoField(primary_key=True)
+#     connection_name = models.CharField(max_length=255,null=False,blank=False)
+#     connection_type = models.CharField(max_length=255,null=False,blank=False)
+#     auth_type = models.CharField(max_length=255, null=False, blank=False)
+#     # connection_url = models.CharField(max_length=2000,null=True,blank=True)
+#     auth_url = models.CharField(max_length=255, null=True, blank=True)
+#     body = models.CharField(max_length=255, null=True, blank=True)
+#     user_id = models.CharField(max_length=500, null=True, blank=True)
+#     password = models.CharField(max_length=500, null=True, blank=True)
+#     data_enpoint_url = models.CharField(max_length=2000, null=False, blank=False)
+#     method = models.CharField(max_length=50, null=False, blank=False)
+#     # client_id = models.CharField(max_length=500, null=True, blank=True)
+#     # secret_code = models.CharField(max_length=500, null=True, blank=True)
+#     created_by = models.IntegerField(null=False, blank=False)
+#     created_date = models.DateTimeField(auto_now_add=True)
+#     last_updated_by = models.IntegerField(null=False, blank=False)
+#     last_updated_date = models.DateTimeField(auto_now=True)
+#     delete_flag = models.CharField(max_length=1, null=False, blank=False, default='N')
 
-    class Meta:
-        db_table = "rb_rest_connect_table"
+#     class Meta:
+#         db_table = "rb_rest_connect_table"

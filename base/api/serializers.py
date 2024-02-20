@@ -300,18 +300,19 @@ class user_profile_serializer(serializers.ModelSerializer):
 # DB Connect
 
 
-class rb_db_connect_table_serializer(serializers.ModelSerializer):
+class rb_connect_definition_table_serializer(serializers.ModelSerializer):
     class Meta:
-        model = rb_db_connect_table
-        fields = ('id', 'connection_name', 'schema_name', 'database_name', 'database_type', 'user_name',
-                  'password', 'host_id', 'port', 'service_name_or_SID', 'account_id', 'warehouse_id', 'role', 'created_by', 'last_updated_by')
+        model = rb_connect_definition_table
+        fields = ('id', 'connection_name', 'schema_name', 'database_name', 'connection_type', 'user_name',
+                  'password', 'host_id', 'port', 'service_name_or_SID', 'account_id', 'warehouse_id', 'role', 'auth_type', 'body', 'auth_url', 'user_id',
+                  'data_enpoint_url', 'method', 'created_by', 'last_updated_by')
         # '__all__'
 
 
 # Restful Connect
-class rb_rest_connect_table_Serializer(serializers.ModelSerializer):
-    class Meta:
-        model = rb_rest_connect_table
-        fields = ('id', 'connection_name', 'connection_type', 'auth_type', 'body', 'auth_url', 'user_id',
-                  'password', 'data_enpoint_url', 'method', 'created_by', 'last_updated_by')
+# class rb_rest_connect_table_Serializer(serializers.ModelSerializer):
+#     class Meta:
+#         model = rb_rest_connect_table
+#         fields = ('id', 'connection_name', 'connection_type', 'auth_type', 'body', 'auth_url', 'user_id',
+#                   'password', 'data_enpoint_url', 'method', 'created_by', 'last_updated_by')
 
