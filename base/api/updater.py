@@ -1,5 +1,5 @@
 from apscheduler.schedulers.background import BackgroundScheduler
-from base.api.views import check_kpi_actulas, session_active_check
+from base.api.views import session_active_check
 import os
 import smtplib
 from email import encoders
@@ -12,6 +12,5 @@ def jobs():
 
 def start():
     scheduler = BackgroundScheduler()
-    scheduler.add_job(check_kpi_actulas, 'interval', hours=2) 
     scheduler.add_job(session_active_check, 'interval', minutes=15)
     scheduler.start()

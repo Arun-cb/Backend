@@ -14,12 +14,12 @@ from pathlib import Path
 from datetime import timedelta
 import os
 
-
 # import cx_Oracle
 import sys
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+
 
 
 # Quick-start development settings - unsuitable for production
@@ -47,7 +47,6 @@ INSTALLED_APPS = [
     'base.apps.BaseConfig',
     'rest_framework',
     'corsheaders',
-    'django_extensions',
     # 'dbview',
 ]
 
@@ -126,22 +125,31 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
- 
-
 # DATABASES = {
 #     'default': {
-#         'ENGINE': 'django.db.backends.mysql', 
-#         'NAME': 'score_card',
-#         'USER': 'root',
-#         'PASSWORD': '',
-#         'HOST': 'localhost',
-#         'PORT': '3306',
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+
+
+
+DATABASES = {
+    "default": {
+        "ENGINE": "django.db.backends.mysql",
+        "NAME": "query_builder",
+        "USER": "root",
+        "PASSWORD": "",
+        "HOST": "localhost",
+        "PORT": "3306"
+    }
+}
+
+
+
+# DATABASES ={
+#     'default':{
+#         'ENGINE' : 'django.db.backends.dummy'
 #     }
 # }
 
@@ -207,26 +215,10 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# CORS_ALLOWED_ORIGINS = [
-#     "http://192.168.100.111:3000",
-#     "http://localhost:3000",
-#     "http://192.168.1.100:3000",
-#     "http://3.81.234.70:8443",
-#     "https://3.81.234.70:8443",
-#     "http://184.72.84.162:3000",
-#     "https://54.81.252.99:8443",
-#     "http://54.81.252.99:8443",
-# ]
-
-# CORS_ORIGIN_WHITELIST = [
-#     "http://3.81.234.70:8443",
-#     "https://3.81.234.70:8443",
-# ]
-
-# CORS_ORIGIN_REGEX_WHITELIST = [
-#     "http://3.81.234.70:8443",
-#     "https://3.81.234.70:8443",
-# ]
+CORS_ALLOWED_ORIGINS = [
+    "http://192.168.100.111:3000",
+    "http://localhost:3000",
+]
 
 CORS_ALLOW_ALL_ORIGINS = True
 # CORS_ORIGIN_ALLOW_ALL = True
